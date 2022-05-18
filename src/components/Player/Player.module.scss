@@ -1,0 +1,191 @@
+.Player {
+  grid-area: playing-bar;
+  background-color: #181818;
+  z-index: 4;
+  height: 90px;
+  color: white;
+  display: flex;
+
+  footer {
+    border-top: 1px solid #282828;
+    padding: 0 16px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  .Song,
+  .Volume {
+    width: 30%;
+    min-width: 180px;
+  }
+}
+
+.Song {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .Img img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .Infos {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    .Artist {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-secondary);
+    }
+  }
+
+  .Like {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
+    }
+  }
+}
+
+.Controls {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    border: none;
+    color: #181818;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+
+    &:hover {
+      transform: scale(1.06);
+      transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+      transition-property: all;
+    }
+  }
+
+  .BarContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    div {
+      min-width: 40px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgb(179, 179, 179);
+    }
+
+    .Wrapper {
+      width: 100%;
+
+      .Bar {
+        width: 100%;
+
+        .Progress {
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+}
+
+.Volume {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &:hover .Bar .Progress {
+    background-color: #1db954;
+  }
+
+  &:hover button {
+    opacity: 1;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: #b3b3b3;
+    height: 32px;
+    width: 32px;
+
+    svg {
+      min-width: 32px;
+      fill: currentcolor;
+    }
+  }
+
+  .Wrapper {
+    .Bar {
+      width: 100px;
+
+      .Progress {
+        transform: translateX(-20%);
+      }
+    }
+  }
+}
+
+.Wrapper {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &:hover .Bar .Progress {
+    background-color: #1db954;
+  }
+
+  &:hover button {
+    opacity: 1;
+  }
+
+  .Bar {
+    overflow: hidden;
+    border-radius: 4px;
+    height: 4px;
+    background-color: var(--bg-color);
+
+    .Progress {
+      border-radius: 4px;
+      background-color: var(--fg-color);
+      width: 100%;
+      height: 4px;
+    }
+  }
+
+  button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    opacity: 0;
+    z-index: 100;
+    position: absolute;
+    left: 20%;
+    min-width: none;
+    margin-bottom: 0 !important;
+    margin-left: -6px;
+  }
+}
